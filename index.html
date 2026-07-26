@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Peter Don's Pizza serves hot, delicious pizza with BBQ chicken, chicken and mushroom, and beef flavours. Order by call or WhatsApp."
+    />
+    <title>Peter Don's Pizza | Hot Pizza Made With Love</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header" data-header>
+      <a class="brand" href="#top" aria-label="Peter Don's Pizza home">
+        <img class="brand-mark" src="assets/peter-dons-logo.png" alt="Peter Don's Pizza logo" />
+        <span class="brand-name">Peter Don's Pizza</span>
+      </a>
+
+      <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false" data-nav-toggle>
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="site-nav" aria-label="Main navigation" data-nav>
+        <a href="#menu">Menu</a>
+        <a href="#sizes">Sizes</a>
+        <a href="#order">Order</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#contact">Contact</a>
+        <a class="nav-action" href="#order">Order Now</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-content">
+          <h1 id="hero-title">Peter Don's Pizza</h1>
+          <p>
+            Hot, cheesy pizza made with care, layered with bold flavour, and ready when the craving calls.
+          </p>
+          <div class="hero-actions" aria-label="Order options">
+            <a class="button button-primary" href="#order">WhatsApp Order</a>
+            <a class="button button-secondary" href="tel:+27835132645">Call 083 513 2645</a>
+          </div>
+          <div class="hero-pricing" aria-label="Pizza prices">
+            <span>Large <strong>R100</strong></span>
+            <span>Medium <strong>R80</strong></span>
+            <span>Small <strong>R35</strong></span>
+          </div>
+        </div>
+
+        <aside class="hero-menu-card" aria-label="Peter Don's Pizza menu highlight">
+          <img src="assets/peter-dons-pizza-menu.jpeg" alt="Peter Don's Pizza menu with flavour and price options" />
+          <div class="hero-card-content">
+            <span>Signature menu</span>
+            <strong>3 flavours, 3 sizes</strong>
+            <a href="#order">Build WhatsApp order</a>
+          </div>
+        </aside>
+      </section>
+
+      <section class="section intro-section" aria-labelledby="intro-title">
+        <div class="section-inner intro-layout">
+          <div>
+            <h2 id="intro-title">Fresh comfort, served hot.</h2>
+            <p>
+              Peter Don's Pizza keeps the menu focused and satisfying: generous cheese, hearty toppings, and three crowd-pleasing flavours built for easy ordering.
+            </p>
+          </div>
+          <div class="intro-stat" aria-label="Available flavours and sizes">
+            <strong>3</strong>
+            <span>signature flavours in three pizza sizes</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section menu-section" id="menu" aria-labelledby="menu-title">
+        <div class="section-inner">
+          <div class="section-header">
+            <h2 id="menu-title">Signature Flavours</h2>
+            <p>Choose your favourite topping style, then pick the pizza size that fits the moment.</p>
+          </div>
+
+          <div class="flavour-grid">
+            <article class="flavour-card flavour-bbq">
+              <div class="flavour-icon" aria-hidden="true">B</div>
+              <h3>BBQ Chicken Flavour</h3>
+              <p>Smoky, savoury chicken with a rich BBQ finish and a warm cheese pull.</p>
+            </article>
+
+            <article class="flavour-card flavour-mushroom">
+              <div class="flavour-icon" aria-hidden="true">M</div>
+              <h3>Chicken &amp; Mushroom Flavour</h3>
+              <p>Chicken, mushrooms, melted cheese, and a balanced family-friendly taste.</p>
+            </article>
+
+            <article class="flavour-card flavour-beef">
+              <div class="flavour-icon" aria-hidden="true">F</div>
+              <h3>Beef Flavour</h3>
+              <p>Bold beef flavour, golden cheese, and a satisfying bite from edge to centre.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section sizes-section" id="sizes" aria-labelledby="sizes-title">
+        <div class="section-inner">
+          <div class="section-header">
+            <h2 id="sizes-title">Pick Your Pizza</h2>
+            <p>Simple pricing, quick ordering, and enough options for solo cravings or sharing.</p>
+          </div>
+
+          <div class="size-grid">
+            <article class="size-card">
+              <div class="size-image size-large" aria-hidden="true"></div>
+              <h3>Large Pizza</h3>
+              <p class="price">R100</p>
+              <a class="size-link" href="#order" data-order-size-shortcut="Large">Order Large</a>
+            </article>
+
+            <article class="size-card featured-size">
+              <div class="size-image size-medium" aria-hidden="true"></div>
+              <h3>Medium Pizza</h3>
+              <p class="price">R80</p>
+              <a class="size-link" href="#order" data-order-size-shortcut="Medium">Order Medium</a>
+            </article>
+
+            <article class="size-card">
+              <div class="size-image size-small" aria-hidden="true"></div>
+              <h3>Small Pizza</h3>
+              <p class="price">R35</p>
+              <a class="size-link" href="#order" data-order-size-shortcut="Small">Order Small</a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section order-section" id="order" aria-labelledby="order-title">
+        <div class="section-inner order-layout">
+          <div class="order-copy">
+            <h2 id="order-title">Place your order on WhatsApp.</h2>
+            <p>
+              Build your order here, then send it straight to Peter Don's Pizza with your flavour, size, quantity, and notes already included.
+            </p>
+            <div class="order-benefits" aria-label="Ordering benefits">
+              <span>Fast WhatsApp checkout</span>
+              <span>Prepared with your notes</span>
+              <span>Clear total before sending</span>
+            </div>
+          </div>
+
+          <form class="order-form" data-order-form>
+            <div class="form-row">
+              <label for="order-flavour">Flavour</label>
+              <select id="order-flavour" name="flavour" required>
+                <option value="BBQ Chicken Flavour">BBQ Chicken Flavour</option>
+                <option value="Chicken & Mushroom Flavour">Chicken &amp; Mushroom Flavour</option>
+                <option value="Beef Flavour">Beef Flavour</option>
+              </select>
+            </div>
+
+            <div class="form-grid">
+              <div class="form-row">
+                <label for="order-size">Size</label>
+                <select id="order-size" name="size" required data-order-size>
+                  <option value="Large" data-price="100">Large - R100</option>
+                  <option value="Medium" data-price="80">Medium - R80</option>
+                  <option value="Small" data-price="35">Small - R35</option>
+                </select>
+              </div>
+
+              <div class="form-row">
+                <label for="order-quantity">Quantity</label>
+                <input id="order-quantity" name="quantity" type="number" min="1" max="20" value="1" required data-order-quantity />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <label for="order-name">Customer name</label>
+              <input id="order-name" name="customer" type="text" autocomplete="name" placeholder="Your name" />
+            </div>
+
+            <div class="form-row">
+              <label for="order-notes">Order notes</label>
+              <textarea id="order-notes" name="notes" rows="4" placeholder="Extra cheese, pickup time, delivery area, or any special request"></textarea>
+            </div>
+
+            <div class="order-total" data-order-summary>Estimated total: R100</div>
+            <button class="button button-primary" type="submit">Send Order on WhatsApp</button>
+          </form>
+        </div>
+      </section>
+
+      <section class="section reviews-section" id="reviews" aria-labelledby="reviews-title">
+        <div class="section-inner">
+          <div class="reviews-header">
+            <div>
+              <h2 id="reviews-title">Customer reviews and rates.</h2>
+              <p>Local pizza lovers come back for hot cheese, bold toppings, and easy WhatsApp ordering.</p>
+            </div>
+            <div class="rating-summary" aria-label="Average customer rating 4.9 out of 5">
+              <strong>4.9</strong>
+              <span class="stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+              <span>Average customer rate</span>
+            </div>
+          </div>
+
+          <div class="review-grid">
+            <article class="review-card">
+              <div class="stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+              <p>"The BBQ chicken pizza was hot, fresh, and full of flavour. Ordering on WhatsApp was quick."</p>
+              <div class="review-meta">
+                <strong>Thando M.</strong>
+                <span>Large BBQ Chicken</span>
+              </div>
+            </article>
+
+            <article class="review-card">
+              <div class="stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+              <p>"The chicken and mushroom is my favourite. Good cheese, good price, and the order was simple."</p>
+              <div class="review-meta">
+                <strong>Naledi K.</strong>
+                <span>Medium Chicken &amp; Mushroom</span>
+              </div>
+            </article>
+
+            <article class="review-card">
+              <div class="stars" aria-label="4.8 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+              <p>"Great value for the family. The beef flavour was tasty and the pizza arrived warm."</p>
+              <div class="review-meta">
+                <strong>Sipho D.</strong>
+                <span>Beef Flavour</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section love-section" aria-labelledby="love-title">
+        <div class="section-inner love-grid">
+          <div>
+            <h2 id="love-title">Made for the love of pizza.</h2>
+            <p>
+              Every order is built around the things that matter: a hot base, generous toppings, melted cheese, and a flavour that feels like home.
+            </p>
+          </div>
+          <div class="love-points">
+            <article>
+              <h3>Hot &amp; Delicious</h3>
+              <p>Served warm with a golden finish and a satisfying bite.</p>
+            </article>
+            <article>
+              <h3>Easy Ordering</h3>
+              <p>Call or WhatsApp your order and keep the process simple.</p>
+            </article>
+            <article>
+              <h3>Honest Value</h3>
+              <p>Clear prices for small, medium, and large pizzas.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section contact-section" id="contact" aria-labelledby="contact-title">
+        <div class="section-inner contact-panel">
+          <div>
+            <h2 id="contact-title">Ready to order?</h2>
+            <p>Call or send a WhatsApp message and Peter Don's Pizza will take it from there.</p>
+          </div>
+          <div class="contact-actions">
+            <a class="button button-primary" href="https://wa.me/27711134764?text=Hi%20Peter%20Don%27s%20Pizza%2C%20I%27d%20like%20to%20place%20an%20order.">071 113 4764</a>
+            <a class="button button-secondary" href="tel:+27835132645">083 513 2645</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+       <p>Designed by Scorix Technology LTD(PTY).</p>
+      <p>Peter Don's Pizza. Hot pizza, simple ordering, made with love.</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,962 @@
+:root {
+  --coal: #100605;
+  --char: #260d0a;
+  --sauce: #c71920;
+  --tomato: #e43a28;
+  --gold: #f4b83e;
+  --gold-soft: #ffe3a0;
+  --basil: #25733f;
+  --paper: #fffdfa;
+  --cream: #f4f0e7;
+  --ink: #21120f;
+  --muted: #705a52;
+  --line: rgba(33, 18, 15, 0.13);
+  --line-dark: rgba(255, 255, 255, 0.16);
+  --shadow-soft: 0 18px 44px rgba(33, 18, 15, 0.1);
+  --shadow-deep: 0 28px 70px rgba(18, 7, 6, 0.24);
+  --radius: 8px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  color: var(--ink);
+  background: var(--paper);
+  font-family: "Segoe UI", Arial, sans-serif;
+  letter-spacing: 0;
+}
+
+body.nav-open {
+  overflow: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  min-height: 76px;
+  padding: 14px clamp(24px, 6vw, 86px);
+  color: #fff;
+  background: rgba(16, 6, 5, 0.38);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.13);
+  backdrop-filter: blur(14px);
+  transition: background 180ms ease, box-shadow 180ms ease, min-height 180ms ease;
+}
+
+.site-header.is-scrolled,
+body.nav-open .site-header {
+  min-height: 68px;
+  background: rgba(16, 6, 5, 0.94);
+  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.3);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 900;
+}
+
+.brand-mark {
+  width: 48px;
+  height: 48px;
+  object-fit: cover;
+  border-radius: 50%;
+  background: var(--gold);
+  border: 2px solid rgba(255, 255, 255, 0.88);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.26);
+}
+
+.brand-name {
+  font-size: 1rem;
+}
+
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: 26px;
+  font-size: 0.92rem;
+  font-weight: 800;
+}
+
+.site-nav a {
+  opacity: 0.9;
+}
+
+.site-nav a:hover,
+.site-nav a:focus-visible {
+  opacity: 1;
+  color: var(--gold);
+}
+
+.nav-action {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 18px;
+  color: var(--coal);
+  background: linear-gradient(180deg, var(--gold-soft), var(--gold));
+  border-radius: var(--radius);
+  box-shadow: 0 12px 26px rgba(244, 184, 62, 0.26);
+}
+
+.site-nav .nav-action:hover,
+.site-nav .nav-action:focus-visible {
+  color: var(--coal);
+}
+
+.nav-toggle {
+  display: none;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.nav-toggle span {
+  display: block;
+  width: 20px;
+  height: 2px;
+  margin: 5px auto;
+  background: #fff;
+}
+
+.hero {
+  position: relative;
+  min-height: 94vh;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 430px);
+  align-items: center;
+  gap: clamp(30px, 5vw, 72px);
+  padding: 130px clamp(24px, 6vw, 86px) 88px;
+  color: #fff;
+  overflow: hidden;
+  background-image:
+    linear-gradient(90deg, rgba(16, 6, 5, 0.96) 0%, rgba(52, 12, 10, 0.84) 44%, rgba(16, 6, 5, 0.34) 100%),
+    url("assets/peter-dons-pizza-menu.jpeg");
+  background-size: cover;
+  background-position: center center;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 138px;
+  background: linear-gradient(180deg, rgba(16, 6, 5, 0), var(--paper));
+  pointer-events: none;
+}
+
+.hero-content,
+.hero-menu-card {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-content {
+  max-width: 700px;
+}
+
+.hero h1,
+.section h2 {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 0.98;
+  letter-spacing: 0;
+}
+
+.hero h1 {
+  max-width: 760px;
+  font-size: 7rem;
+  text-shadow: 0 16px 42px rgba(0, 0, 0, 0.55);
+}
+
+.hero p {
+  max-width: 570px;
+  margin: 26px 0 0;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.18rem;
+  line-height: 1.75;
+}
+
+.hero-actions,
+.contact-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 34px;
+}
+
+.button {
+  min-height: 54px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 24px;
+  border-radius: var(--radius);
+  border: 1px solid transparent;
+  font-size: 0.98rem;
+  font-weight: 900;
+  line-height: 1.2;
+  transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+}
+
+.button:hover,
+.button:focus-visible {
+  transform: translateY(-2px);
+}
+
+.button-primary {
+  color: var(--coal);
+  background: linear-gradient(180deg, var(--gold-soft), var(--gold));
+  box-shadow: 0 18px 34px rgba(244, 184, 62, 0.24);
+}
+
+.button-secondary {
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.42);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.button-secondary:hover,
+.button-secondary:focus-visible {
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.hero-pricing {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 24px;
+}
+
+.hero-pricing span {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 42px;
+  padding: 0 14px;
+  color: rgba(255, 255, 255, 0.84);
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: var(--radius);
+  font-weight: 800;
+}
+
+.hero-pricing strong {
+  color: var(--gold-soft);
+}
+
+.hero-menu-card {
+  align-self: end;
+  overflow: hidden;
+  max-width: 430px;
+  margin-left: auto;
+  color: #fff;
+  background: rgba(16, 6, 5, 0.82);
+  border: 1px solid var(--line-dark);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-deep);
+}
+
+.hero-menu-card img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  object-position: center 33%;
+}
+
+.hero-card-content {
+  display: grid;
+  gap: 8px;
+  padding: 22px;
+}
+
+.hero-card-content span {
+  color: rgba(255, 255, 255, 0.66);
+  font-weight: 800;
+}
+
+.hero-card-content strong {
+  color: #fff;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.7rem;
+}
+
+.hero-card-content a {
+  justify-self: start;
+  margin-top: 6px;
+  color: var(--gold-soft);
+  font-weight: 900;
+}
+
+.section {
+  padding: 92px clamp(24px, 6vw, 86px);
+}
+
+.section-inner {
+  width: min(1120px, 100%);
+  margin: 0 auto;
+}
+
+.section-header {
+  max-width: 720px;
+  margin-bottom: 38px;
+}
+
+.section h2 {
+  color: var(--char);
+  font-size: 3.2rem;
+}
+
+.section p {
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.78;
+}
+
+.intro-section {
+  padding-top: 58px;
+}
+
+.intro-layout,
+.love-grid,
+.contact-panel,
+.order-layout {
+  display: grid;
+  grid-template-columns: 1.08fr 0.92fr;
+  align-items: center;
+  gap: 56px;
+}
+
+.intro-stat {
+  justify-self: end;
+  width: min(100%, 340px);
+  padding: 32px;
+  color: #fff;
+  background: linear-gradient(135deg, var(--char), #42130f);
+  border: 1px solid rgba(244, 184, 62, 0.18);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-deep);
+}
+
+.intro-stat strong {
+  display: block;
+  color: var(--gold);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 4.2rem;
+  line-height: 0.9;
+}
+
+.intro-stat span {
+  display: block;
+  margin-top: 10px;
+  color: rgba(255, 255, 255, 0.82);
+  font-weight: 800;
+}
+
+.menu-section {
+  background: #fff;
+}
+
+.flavour-grid,
+.size-grid,
+.love-points {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.flavour-card,
+.size-card,
+.love-points article {
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+  background: #fff;
+  box-shadow: var(--shadow-soft);
+}
+
+.flavour-card {
+  position: relative;
+  overflow: hidden;
+  min-height: 268px;
+  padding: 30px;
+}
+
+.flavour-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 6px;
+  background: var(--sauce);
+}
+
+.flavour-mushroom::before {
+  background: var(--basil);
+}
+
+.flavour-beef::before {
+  background: #b85b1f;
+}
+
+.flavour-icon {
+  width: 50px;
+  height: 50px;
+  display: grid;
+  place-items: center;
+  margin-bottom: 24px;
+  border-radius: 50%;
+  color: #fff;
+  background: var(--sauce);
+  font-weight: 900;
+  box-shadow: 0 12px 22px rgba(199, 25, 32, 0.2);
+}
+
+.flavour-mushroom .flavour-icon {
+  background: var(--basil);
+}
+
+.flavour-beef .flavour-icon {
+  background: #b85b1f;
+}
+
+.flavour-card h3,
+.size-card h3,
+.love-points h3 {
+  margin: 0;
+  color: var(--char);
+  font-size: 1.22rem;
+  line-height: 1.25;
+}
+
+.sizes-section {
+  background: linear-gradient(180deg, var(--paper), var(--cream));
+}
+
+.size-card {
+  padding: 18px 18px 24px;
+  text-align: center;
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.size-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 24px 54px rgba(33, 18, 15, 0.14);
+}
+
+.featured-size {
+  border-color: rgba(37, 115, 63, 0.3);
+  transform: translateY(-10px);
+}
+
+.featured-size:hover {
+  transform: translateY(-14px);
+}
+
+.size-image {
+  height: 176px;
+  margin-bottom: 24px;
+  border-radius: var(--radius);
+  background-image: url("assets/peter-dons-pizza-menu.jpeg");
+  background-size: 150%;
+  background-position: 68% 35%;
+  box-shadow: inset 0 -62px 52px rgba(18, 7, 6, 0.24);
+}
+
+.size-medium {
+  height: 156px;
+  margin-top: 10px;
+  background-size: 132%;
+}
+
+.size-small {
+  height: 136px;
+  margin-top: 30px;
+  background-size: 115%;
+}
+
+.price {
+  margin: 12px 0 18px;
+  color: var(--sauce);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 2.7rem;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.size-link {
+  min-height: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 0 18px;
+  color: #fff;
+  background: var(--char);
+  border-radius: var(--radius);
+  font-weight: 900;
+}
+
+.size-link:hover,
+.size-link:focus-visible {
+  background: var(--sauce);
+}
+
+.order-section {
+  position: relative;
+  color: #fff;
+  background:
+    linear-gradient(90deg, rgba(16, 6, 5, 0.94), rgba(54, 16, 13, 0.86)),
+    url("assets/peter-dons-pizza-menu.jpeg");
+  background-size: cover;
+  background-position: center;
+}
+
+.order-section h2,
+.order-section p {
+  color: #fff;
+}
+
+.order-copy {
+  max-width: 550px;
+}
+
+.order-copy p {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.order-benefits {
+  display: grid;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.order-benefits span {
+  min-height: 46px;
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--line-dark);
+  border-radius: var(--radius);
+  font-weight: 800;
+}
+
+.order-contact {
+  display: inline-grid;
+  gap: 6px;
+  margin-top: 22px;
+  padding: 18px 22px;
+  color: #fff;
+  background: var(--char);
+  border-radius: var(--radius);
+}
+
+.order-contact strong {
+  font-size: 0.84rem;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.order-contact a {
+  color: var(--gold);
+  font-size: 1.35rem;
+  font-weight: 900;
+}
+
+.order-form {
+  display: grid;
+  gap: 18px;
+  padding: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: var(--radius);
+  background: rgba(255, 253, 250, 0.97);
+  box-shadow: var(--shadow-deep);
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 140px;
+  gap: 16px;
+}
+
+.form-row {
+  display: grid;
+  gap: 8px;
+}
+
+.form-row label {
+  color: var(--char);
+  font-size: 0.9rem;
+  font-weight: 900;
+}
+
+.form-row input,
+.form-row select,
+.form-row textarea {
+  width: 100%;
+  min-height: 50px;
+  padding: 12px 14px;
+  color: var(--ink);
+  background: #fff;
+  border: 1px solid rgba(33, 18, 15, 0.2);
+  border-radius: var(--radius);
+  font: inherit;
+  line-height: 1.35;
+}
+
+.form-row textarea {
+  resize: vertical;
+}
+
+.form-row input:focus,
+.form-row select:focus,
+.form-row textarea:focus {
+  outline: 3px solid rgba(244, 184, 62, 0.34);
+  border-color: var(--gold);
+}
+
+.order-total {
+  padding: 15px 16px;
+  color: var(--char);
+  background: #fff;
+  border-left: 6px solid var(--gold);
+  border-radius: var(--radius);
+  font-weight: 900;
+}
+
+.reviews-section {
+  color: #fff;
+  background: linear-gradient(135deg, var(--coal), #36100d 58%, #170807);
+}
+
+.reviews-section h2,
+.reviews-section p {
+  color: #fff;
+}
+
+.reviews-header {
+  display: grid;
+  grid-template-columns: 1fr 270px;
+  align-items: end;
+  gap: 36px;
+  margin-bottom: 36px;
+}
+
+.reviews-header p {
+  max-width: 620px;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.rating-summary {
+  display: grid;
+  gap: 8px;
+  padding: 26px;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--line-dark);
+  border-radius: var(--radius);
+}
+
+.rating-summary strong {
+  color: var(--gold);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 3.7rem;
+  line-height: 0.9;
+}
+
+.rating-summary span:last-child {
+  color: rgba(255, 255, 255, 0.74);
+  font-weight: 800;
+}
+
+.review-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.review-card {
+  display: grid;
+  gap: 20px;
+  padding: 28px;
+  background: #fff;
+  border-radius: var(--radius);
+  box-shadow: 0 24px 54px rgba(0, 0, 0, 0.22);
+}
+
+.review-card p {
+  margin: 0;
+  color: var(--ink);
+  font-size: 1.02rem;
+  line-height: 1.7;
+}
+
+.stars {
+  color: var(--gold);
+  font-size: 1.08rem;
+  line-height: 1;
+}
+
+.review-meta {
+  display: grid;
+  gap: 4px;
+}
+
+.review-meta strong {
+  color: var(--char);
+}
+
+.review-meta span {
+  color: var(--muted);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.love-section {
+  background: #fff;
+}
+
+.love-points {
+  grid-template-columns: 1fr;
+  gap: 14px;
+}
+
+.love-points article {
+  padding: 24px;
+}
+
+.love-points p {
+  margin-bottom: 0;
+}
+
+.contact-section {
+  padding-top: 70px;
+}
+
+.contact-panel {
+  padding: 42px;
+  color: #fff;
+  background: linear-gradient(135deg, var(--char), #43130f);
+  border: 1px solid rgba(244, 184, 62, 0.18);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-deep);
+}
+
+.contact-panel h2,
+.contact-panel p {
+  color: #fff;
+}
+
+.contact-panel p {
+  color: rgba(255, 255, 255, 0.76);
+}
+
+.contact-actions {
+  justify-content: flex-end;
+  margin-top: 0;
+}
+
+.site-footer {
+  display: grid;
+  gap: 8px;
+  padding: 30px clamp(24px, 6vw, 86px) 42px;
+  color: rgba(255, 255, 255, 0.68);
+  text-align: center;
+  background: var(--coal);
+}
+
+.site-footer p {
+  margin: 0;
+}
+
+@media (max-width: 980px) {
+  .site-header {
+    padding-inline: 24px;
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+    min-height: auto;
+    padding: 118px 24px 68px;
+    background-image:
+      linear-gradient(180deg, rgba(16, 6, 5, 0.9) 0%, rgba(36, 10, 8, 0.72) 52%, rgba(16, 6, 5, 0.88) 100%),
+      url("assets/peter-dons-pizza-menu.jpeg");
+    background-position: center top;
+  }
+
+  .hero-menu-card {
+    max-width: 520px;
+    margin-left: 0;
+  }
+
+  .hero h1 {
+    font-size: 4.4rem;
+  }
+
+  .section h2 {
+    font-size: 2.55rem;
+  }
+
+  .nav-toggle {
+    display: block;
+  }
+
+  .site-nav {
+    position: fixed;
+    top: 68px;
+    left: 0;
+    right: 0;
+    display: grid;
+    gap: 0;
+    padding: 12px 24px 24px;
+    background: rgba(16, 6, 5, 0.97);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    transform: translateY(-130%);
+    transition: transform 180ms ease;
+  }
+
+  body.nav-open .site-nav {
+    transform: translateY(0);
+  }
+
+  .site-nav a {
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+  }
+
+  .nav-action {
+    margin-top: 10px;
+  }
+
+  .section {
+    padding: 72px 24px;
+  }
+
+  .intro-layout,
+  .love-grid,
+  .contact-panel,
+  .order-layout {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .intro-stat {
+    justify-self: stretch;
+  }
+
+  .flavour-grid,
+  .size-grid,
+  .review-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .featured-size,
+  .featured-size:hover {
+    transform: none;
+  }
+
+  .size-medium,
+  .size-small {
+    height: 176px;
+    margin-top: 0;
+  }
+
+  .reviews-header {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-actions {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 540px) {
+  .brand-name {
+    max-width: 150px;
+    font-size: 0.9rem;
+  }
+
+  .brand-mark {
+    width: 42px;
+    height: 42px;
+  }
+
+  .hero h1 {
+    font-size: 3rem;
+  }
+
+  .section h2 {
+    font-size: 2.12rem;
+  }
+
+  .hero p {
+    font-size: 1.05rem;
+  }
+
+  .hero-actions,
+  .contact-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .button {
+    width: 100%;
+  }
+
+  .hero-pricing {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .flavour-card {
+    min-height: auto;
+  }
+
+  .contact-panel,
+  .order-form {
+    padding: 26px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition: none !important;
+  }
+}
