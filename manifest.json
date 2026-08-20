@@ -1,0 +1,14 @@
+{
+  "name": "Peter Don's Pizza",
+  "short_name": "Peter Don's",
+  "description": "Hot, generous pizzas made for local pickup and easy WhatsApp ordering.",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#20130f",
+  "theme_color": "#20130f",
+  "orientation": "portrait-primary",
+  "icons": [
+    { "src": "assets/peter-dons-logo.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+    { "src": "assets/peter-dons-logo.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}

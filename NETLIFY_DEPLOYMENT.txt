@@ -1,0 +1,33 @@
+How to deploy this static site to Netlify
+
+Recommended (deploy from local folder):
+1. Create a free Netlify account at https://app.netlify.com/
+2. From the Netlify dashboard, choose "Sites" → "Add new site" → "Import from Git" if you have a git repo, or choose "Deploy manually" → "Drag and drop" to upload this project folder.
+   - If using Drag & Drop: zip the project folder or drag the folder contents; set the publish directory to the root (the site is static HTML/CSS/JS).
+
+Deploy from Git (recommended for updates):
+1. Initialize a git repository in this folder (if not already):
+   git init
+   git add .
+   git commit -m "Initial site"
+2. Push the repository to GitHub, GitLab or Bitbucket.
+3. In Netlify: "Add new site" → "Import from Git" → connect your Git provider and choose the repository.
+   - Build command: (leave blank)
+   - Publish directory: / (root)
+4. Click "Deploy site". Netlify will build and publish the static files.
+
+Notes and recommended steps after deploy:
+- Add a custom domain in Site settings and enable HTTPS (Netlify provides a free TLS certificate).
+- Configure the payment/order environment variables listed in PAYMENTS_SETUP.md. This project now includes Netlify Functions and Netlify Blobs for the server-side checkout and saved orders.
+- To keep images fast, consider generating optimized JPEG/WebP variants and referencing them in srcset (the code already uses loading="lazy" and srcset placeholders).
+- For nicer modal confirmation styling or analytics, push further code changes to the repository and Netlify will automatically redeploy.
+
+Payment and order setup:
+- Read PAYMENTS_SETUP.md before enabling Yoco.
+- Add YOCO_SECRET_KEY, YOCO_WEBHOOK_SECRET, SITE_URL and ORDERS_ADMIN_TOKEN in Netlify.
+- Register https://YOUR-DOMAIN/api/yoco-webhook in Yoco and store the returned one-time webhook secret.
+- Keep the Yoco secret key and order admin token out of the repository and browser code.
+
+If you want, I can:
+- Create GitHub-ready commits and push to a repo (if you provide access/credentials or perform locally).
+- Generate optimized image variants (WebP / resized) locally and wire srcset to them (requires image toolchain).

@@ -1,0 +1,14 @@
+{
+  "name": "peter-dons-pizza",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Peter Don's Pizza storefront with Yoco checkout and Netlify Blobs order storage.",
+  "scripts": {
+    "dev": "netlify dev",
+    "check": "node --check script.js && node --check sw.js"
+  },
+  "dependencies": {
+    "@netlify/blobs": "11.0.1",
+    "@netlify/functions": "6.0.0"
+  }
+}
